@@ -29,8 +29,11 @@ if rising_edge(clk) then
     ticks_flag <= '1';
     ticks := 0;
   end if;
-end if;
-    
-end process;
 
-end dsgn_timer_driver;
+  if(reset = '1') then
+    ticks_flag <= '0';
+    ticks := 0;
+  end if;
+
+end if;    
+end process;
